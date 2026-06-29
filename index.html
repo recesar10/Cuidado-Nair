@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#4f46e5" />
+<title>Cuidado Dona Nair v3.4</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+:root{
+  --bg:#f4f7fb; --card:#fff; --ink:#10172f; --muted:#687385;
+  --brand:#6d46dc; --blue:#2f71eb; --green:#15956a; --green-bg:#e9fbf2; --green-border:#cbeed7;
+  --red:#dc2626; --red-bg:#fff1f1; --red-border:#fecaca;
+  --orange:#ff8500; --soft:#eef3ff; --shadow:0 18px 50px rgba(20,31,60,.10);
+  --radius:28px; --line:#d7e3f5;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:linear-gradient(180deg,#f7f9fe,#edf2fa);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);padding-bottom:110px}
+.splash{position:fixed;inset:0;background:linear-gradient(135deg,#fff,#eef4ff);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:99;transition:opacity .45s ease,visibility .45s ease}.splash.hide{opacity:0;visibility:hidden}.splash img{width:160px;height:160px;object-fit:cover;border-radius:22px;box-shadow:var(--shadow)}.splash h1{font-size:34px;margin:24px 0 8px}.splash p{font-size:22px;color:var(--muted);margin:0}
+.top{padding:28px 28px 40px;border-bottom-left-radius:38px;border-bottom-right-radius:38px;background:linear-gradient(135deg,#742ee6,#2f75ed);color:#fff;box-shadow:0 18px 45px rgba(75,80,220,.25);display:flex;gap:18px;align-items:center}.night .top{background:linear-gradient(135deg,#4b2ecf,#144bb2)}.top img{width:112px;height:112px;border-radius:14px;object-fit:cover;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.18)}.top h1{font-size:34px;line-height:1.05;margin:0 0 8px;font-weight:900}.top p{margin:0;font-size:20px;opacity:.95}.install{margin-left:auto;border:0;background:white;color:#11172d;padding:18px 22px;border-radius:22px;font-weight:900;font-size:19px;box-shadow:0 8px 20px rgba(0,0,0,.12)}
+main{padding:28px 22px}.card{background:var(--card);border:1px solid rgba(17,24,39,.06);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin:0 0 24px}.hero{text-align:center;animation:enter .35s ease}.hero .face{font-size:72px;filter:drop-shadow(0 8px 12px rgba(250,180,20,.22));margin-bottom:6px}.kicker{font-size:22px;color:var(--muted);margin-top:6px}.hero h2{font-size:36px;line-height:1.1;margin:12px 0;font-weight:950}.hero p{font-size:23px;line-height:1.35;color:var(--muted);margin:8px auto 24px;max-width:520px}.pill-warn{display:inline-flex;align-items:center;gap:8px;background:var(--red-bg);border:1px solid var(--red-border);color:var(--red);font-size:20px;font-weight:850;border-radius:16px;padding:12px 16px;margin:6px 0 8px}.remaining{display:inline-flex;align-items:center;gap:8px;background:#f1f6ff;border:1px solid #cfe0ff;color:#1456c8;font-size:19px;font-weight:850;border-radius:16px;padding:10px 14px;margin:4px 0 10px}.btn{width:100%;border:0;border-radius:22px;padding:24px 18px;font-size:25px;font-weight:950;color:white;box-shadow:0 14px 30px rgba(255,133,0,.24);transition:transform .08s ease,filter .2s ease}.btn:active{transform:scale(.97);filter:brightness(1.03)}.btn.food{background:linear-gradient(135deg,#ff9a17,#ff7900)}.btn.med{background:linear-gradient(135deg,#8050df,#613bd2)}.btn.gly{background:linear-gradient(135deg,#25b6b0,#13958d)}.help{margin-top:12px;background:var(--red-bg);color:var(--red);border:2px solid var(--red-border);box-shadow:none;padding:17px 16px;font-size:21px;border-radius:20px}
+.status h3,.timeline h3,.family h3,.settings h3{font-size:30px;margin:0 0 20px}.status-box{display:flex;gap:18px;align-items:center;border-radius:22px;padding:20px;border:1px solid}.status-box.red{background:var(--red-bg);border-color:var(--red-border);color:var(--red)}.status-box.green{background:var(--green-bg);border-color:var(--green-border);color:var(--green)}.status-box.blue{background:#eef6ff;border-color:#bfdbfe;color:#1d4ed8}.dot{width:34px;height:34px;border-radius:50%;box-shadow:inset 0 -7px 9px rgba(0,0,0,.12);flex:0 0 auto}.red .dot{background:var(--red)}.green .dot{background:#78bd42}.blue .dot{background:#1d4ed8}.status-box b{font-size:23px;display:block}.status-box span{font-size:19px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}.stat{background:#f1f5ff;border:1px solid #e4ebff;border-radius:20px;text-align:center;padding:16px 8px}.stat.done{background:var(--green-bg);border-color:var(--green-border)}.stat.pending{background:#fff9ea;border-color:#ffe4a8}.stat.late{background:var(--red-bg);border-color:var(--red-border)}.stat.alert{background:#eef4ff;border-color:#cfe0ff}.stat .si{font-size:26px;display:block;margin-bottom:4px}.stat .n{font-size:34px;font-weight:950}.stat .l{font-size:17px;color:var(--muted)}
+.timeline-head{display:flex;justify-content:space-between;align-items:center}.link{border:0;background:transparent;color:#2f66d9;font-size:18px;font-weight:850;display:flex;align-items:center;gap:6px;text-align:right}.timeline-list{position:relative;margin-top:12px}.timeline-list:before{content:'';position:absolute;left:20px;top:24px;bottom:24px;width:2px;background:var(--line)}.entry{display:grid;grid-template-columns:44px 76px 1fr 20px;gap:12px;align-items:center;border:1px solid #e5e9f2;border-radius:22px;padding:16px;margin:14px 0;background:#fff;position:relative}.check{width:36px;height:36px;border-radius:50%;background:#2fa365;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:950;font-size:20px;z-index:1}.entry .time{font-size:19px;font-weight:900}.entry b{font-size:21px}.entry p{margin:6px 0 0;color:var(--muted);font-size:17px}
+.tag{display:inline-flex;align-items:center;gap:7px;font-weight:900;border-radius:999px;padding:6px 13px;margin-left:8px;border:1px solid transparent;white-space:nowrap}.tag.status-feito{background:var(--green-bg);color:var(--green);border-color:var(--green-border)}.tag.status-atrasado{background:var(--red-bg);color:var(--red);border-color:var(--red-border)}.tag.status-proxima{background:#eef6ff;color:#1d4ed8;border-color:#bfdbfe}.tag.status-programada{background:#f4f6fa;color:#64748b;border-color:#e2e8f0}.status-icon{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;font-size:13px;font-weight:950;line-height:1}.status-icon.ok{background:var(--green);color:#fff}.status-icon.late{background:#fff;color:var(--red);border:2px solid var(--red);font-size:12px}.status-icon.next{background:#1d4ed8;color:#fff}.status-icon.scheduled{background:#94a3b8;color:#fff}.tabs{position:fixed;left:12px;right:12px;bottom:12px;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border:1px solid #e7ecf5;border-radius:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:10px;box-shadow:0 12px 40px rgba(20,31,60,.14);z-index:20}.tab{border:0;background:transparent;border-radius:18px;padding:12px 4px;font-size:16px;font-weight:850;color:#596477}.tab.active{background:#eaf1ff;color:#155bc0}.tab .ico{display:block;font-size:28px}.hidden{display:none}.family-list .row{display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid #e5e9f2;border-radius:22px;padding:18px;margin:12px 0;font-size:22px;font-weight:900}.csv,.whats,.save,.secondary{border:0;width:100%;border-radius:22px;padding:22px;font-size:23px;font-weight:950;color:#fff;margin:10px 0}.csv{background:#3d73e6}.whats,.save{background:var(--green)}.secondary{background:#eef3ff;color:#11172d}.setting-row{display:flex;align-items:center;gap:16px;border:1px solid #e5e9f2;border-radius:22px;padding:16px;margin:12px 0;font-weight:850;font-size:21px}.setting-row input{font-size:22px;border:0;background:#f0f0f2;border-radius:14px;padding:14px;width:132px}.small-note{font-size:17px;color:var(--muted);line-height:1.35}.phone{width:100%;font-size:22px;padding:18px;border:1px solid #e5e9f2;border-radius:18px}.toast{position:fixed;left:24px;right:24px;bottom:105px;background:#11172d;color:white;padding:18px 20px;border-radius:18px;text-align:center;font-size:19px;font-weight:900;box-shadow:var(--shadow);z-index:60;opacity:0;transform:translateY(12px);transition:.25s}.toast.show{opacity:1;transform:translateY(0)}.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:50}.confetti i{position:absolute;top:-20px;font-style:normal;animation:fall 1.5s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(540deg);opacity:.8}}@keyframes enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}@media(max-width:560px){.top{padding:22px 22px 34px}.top img{width:92px;height:92px}.top h1{font-size:28px}.top p{font-size:18px}.install{padding:15px 18px;font-size:17px}.hero h2{font-size:31px}.stats{gap:8px}.stat .n{font-size:31px}.stat .l{font-size:16px}.card{padding:24px 20px}}
+</style>
+</head>
+<body>
+<div class="splash" id="splash"><img src="logo.jpg" alt="Família Araújo"><h1>Cuidado Dona Nair</h1><p>Cuidando com amor. ❤️</p></div>
+<header class="top"><img src="logo.jpg" alt="Família Araújo"><div><h1>Cuidado<br>Dona Nair</h1><p id="dateText"></p></div><button class="install" id="installBtn">Instalar</button></header>
+<main>
+<section id="home">
+  <div class="card hero" id="hero"></div>
+  <div class="card status" id="status"></div>
+  <div class="card timeline"><div class="timeline-head"><h3>Linha do tempo<br>de hoje</h3><button class="link" onclick="clearToday()">🗑️ Limpar<br>histórico</button></div><div id="timeline"></div></div>
+</section>
+<section id="family" class="hidden"><div class="card family"><h3>Painel da família</h3><p style="font-size:22px;color:var(--muted);line-height:1.35">Resumo rápido para os filhos acompanharem o dia da Dona Nair.</p><div id="familyStatus"></div><div id="familyList" class="family-list"></div><div style="margin-top:24px"><h3>Relatório</h3><button class="csv" onclick="downloadCsv()">Baixar CSV para médico</button><button class="whats" onclick="sendWhats()">Enviar resumo no WhatsApp</button></div></div></section>
+<section id="settings" class="hidden"><div class="card settings"><h3>Ajustes da rotina</h3><p style="font-size:22px;color:var(--muted)">Ajuste a rotina básica da Dona Nair.</p><div id="routineInputs"></div><button class="save" onclick="saveRoutine()">Salvar rotina</button><button class="secondary" onclick="resetRoutine()">Restaurar padrão</button></div><div class="card settings"><h3>Contato da família</h3><b style="font-size:20px">WhatsApp para aviso</b><input class="phone" id="phone" placeholder="5511999999999"><p class="small-note">Use DDI + DDD + número.</p><button class="save" onclick="savePhone()">Salvar contato</button></div><div class="card settings"><h3>Fase 3: Notificações</h3><p class="small-note">Ative para receber avisos automáticos quando uma atividade ficar pendente. Nesta versão os alertas funcionam enquanto o app estiver aberto ou instalado e ativo no aparelho.</p><button class="save" onclick="enableNotifications()" id="notifBtn">Ativar notificações</button><button class="csv" onclick="testNotification()">Testar notificação</button><button class="csv" onclick="exportBackup()">Exportar backup</button><button class="secondary" onclick="document.getElementById('backupFile').click()">Importar backup</button><input type="file" id="backupFile" accept="application/json" style="display:none" onchange="importBackup(event)"></div></section>
+</main>
+<nav class="tabs"><button class="tab active" data-tab="home"><span class="ico">🏠</span>Início</button><button class="tab" data-tab="family"><span class="ico">👨‍👩‍👧</span>Família</button><button class="tab" data-tab="settings"><span class="ico">⚙️</span>Ajustes</button></nav>
+<div id="toast" class="toast"></div><div id="confetti" class="confetti"></div>
+<script>
+const VERSION='3.4';
+const defaultRoutine=[
+{id:'med_manha',type:'med',icon:'💊',label:'Remédio da manhã',time:'07:30'},
+{id:'cafe',type:'food',icon:'☕',label:'Café da manhã',time:'08:00'},
+{id:'gly_cafe',type:'gly',icon:'🩸',label:'Medir glicemia',time:'08:20'},
+{id:'almoco',type:'food',icon:'🍽️',label:'Almoço',time:'12:30'},
+{id:'gly_almoco',type:'gly',icon:'🩸',label:'Medir glicemia',time:'12:50'},
+{id:'med_noite',type:'med',icon:'💊',label:'Remédio da noite',time:'18:00'},
+{id:'jantar',type:'food',icon:'🌙',label:'Jantar',time:'19:00'},
+{id:'gly_jantar',type:'gly',icon:'🩸',label:'Medir glicemia',time:'19:20'},
+{id:'gly_dormir',type:'gly',icon:'🩸',label:'Medir glicemia',time:'22:00'}
+];
+let deferredPrompt=null;
+let routine=normalizeRoutine(JSON.parse(localStorage.getItem('nair_routine')||'null')||defaultRoutine);
+let records=JSON.parse(localStorage.getItem(key())||'[]');
+let scheduledTimers=[];
+function key(){return 'nair_records_'+new Date().toISOString().slice(0,10)}
+function nowMinutes(){let d=new Date();return d.getHours()*60+d.getMinutes()}
+function minutes(t){let [h,m]=t.split(':').map(Number);return h*60+m}
+function done(id){return records.some(r=>r.id===id)}
+function normalizeRoutine(saved){
+  let byId=Object.fromEntries((saved||[]).map(r=>[r.id,r]));
+  let merged=defaultRoutine.map(d=>({...d,...(byId[d.id]||{})}));
+  if(!localStorage.getItem('nair_routine_v32_done')){localStorage.setItem('nair_routine',JSON.stringify(merged));localStorage.setItem('nair_routine_v32_done','yes')}
+  return merged;
+}
+function pending(){return routine.filter(r=>!done(r.id))}
+function late(){let n=nowMinutes();return pending().filter(r=>minutes(r.time)<=n)}
+function futurePending(){let n=nowMinutes();return pending().filter(r=>minutes(r.time)>n).sort((a,b)=>minutes(a.time)-minutes(b.time))}
+function nextFuture(){return futurePending()[0]||null}
+function nextTask(){let l=late().sort((a,b)=>minutes(a.time)-minutes(b.time));return l[0]||nextFuture()||null}
+function taskStatus(task){
+  if(done(task.id)) return 'feito';
+  if(minutes(task.time)<=nowMinutes()) return 'atrasado';
+  let nf=nextFuture();
+  if(nf && nf.id===task.id) return 'proxima';
+  return 'programada';
+}
+function statusBadge(status){
+  if(status==='feito')return `<span class="tag status-feito"><span class="status-icon ok">✓</span>Feito</span>`;
+  if(status==='atrasado')return `<span class="tag status-atrasado"><span class="status-icon late">⏰</span>Atrasado</span>`;
+  if(status==='proxima')return `<span class="tag status-proxima"><span class="status-icon next">›</span>Próxima</span>`;
+  return `<span class="tag status-programada"><span class="status-icon scheduled">•</span>Programada</span>`;
+}
+function formatDate(){let d=new Date();return d.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}
+function greet(){let h=new Date().getHours();document.body.classList.toggle('night',h>=18||h<6);if(h<12)return ['☀️','Bom dia'];if(h<18)return ['🌤️','Boa tarde'];return ['🌙','Boa noite']}
+function render(){records=JSON.parse(localStorage.getItem(key())||'[]');document.getElementById('dateText').textContent=formatDate();renderHero();renderStatus();renderTimeline();renderFamily();renderSettings();updateNotifButton();scheduleNotifications();}
+function renderHero(){let [face,hello]=greet();let n=nextTask();let el=document.getElementById('hero');if(!n){el.innerHTML=`<div class="face">🎉</div><div class="kicker">Tudo concluído</div><h2>Parabéns, Dona Nair!</h2><p>As atividades cadastradas de hoje foram registradas.</p><button class="btn help" onclick="needHelp()">❤️ PRECISO DE AJUDA</button>`;confetti();return}let isLate=minutes(n.time)<=nowMinutes();let label=n.type==='food'?(n.id==='cafe'?'JÁ TOMEI CAFÉ':n.id==='almoco'?'JÁ ALMOCEI':'JÁ JANTEI'):n.type==='gly'?'REGISTRAR GLICEMIA':'JÁ TOMEI';let cls=n.type==='food'?'food':n.type==='gly'?'gly':'med';el.innerHTML=`<div class="face">${face}</div><div class="kicker">${n.time} • Próxima atividade</div><h2>${hello}, Dona Nair</h2>${isLate?`<div class="pill-warn">⏰ Está atrasado: ${n.icon} ${n.label}</div>`:`<p>${n.icon} Está na hora de ${n.label.toLowerCase()}.</p>`}<br><div class="remaining">🕘 Faltam ${pending().length} atividade(s) para concluir o dia.</div><p>Toque no botão quando fizer.</p><button class="btn ${cls}" onclick="completeTask('${n.id}')">${n.icon} ${label}</button><button class="btn help" onclick="needHelp()">❤️ PRECISO DE AJUDA</button>`}
+function renderStatus(){let f=records.length,p=pending().length,l=late().length;let box=p===0?`<div class="status-box green"><div class="dot"></div><div><b>Tudo em dia</b><span>Dona Nair está com a rotina de hoje concluída.</span></div></div>`:l>0?`<div class="status-box red"><div class="dot"></div><div><b>Atenção necessária</b><span>Existem ${l} atividade(s) atrasada(s).</span></div></div>`:`<div class="status-box blue"><div class="dot"></div><div><b>Rotina em andamento</b><span>Ainda restam ${p} atividade(s) programadas para hoje.</span></div></div>`;document.getElementById('status').innerHTML=`<h3>Status de hoje</h3>${box}<div class="stats"><div class="stat done"><span class="si">✅</span><div class="n">${f}</div><div class="l">Feitas</div></div><div class="stat pending"><span class="si">🕓</span><div class="n">${p}</div><div class="l">Pendentes</div></div><div class="stat late"><span class="si">⏰</span><div class="n">${l}</div><div class="l">Atrasadas</div></div><div class="stat alert"><span class="si">🔔</span><div class="n">0</div><div class="l">Alertas</div></div></div>`}
+function recordNoteHtml(r){
+  if(r.type==='gly'&&r.note&&r.note!=='Concluído'&&r.note!=='Confirmado'){
+    return `<p><span style="display:block;color:#64748b;font-size:16px">Resultado</span><b style="font-size:20px;color:#111827">${r.note}</b></p>`;
+  }
+  return `<p>✅ Concluído</p>`;
+}
+function showRecordDetail(i){
+  let r=records[i];
+  if(!r)return;
+  if(r.type==='gly'&&r.note&&r.note!=='Concluído'&&r.note!=='Confirmado'){
+    alert(`${r.icon} ${r.label}
+
+Horário
+${r.at}
+
+Resultado
+${r.note}`);
+  }
+}
+function renderTimeline(){let el=document.getElementById('timeline');if(!records.length){el.innerHTML='<p style="font-size:21px;color:var(--muted)">Nenhum registro hoje.</p>';return}el.innerHTML='<div class="timeline-list">'+records.map((r,i)=>`<div class="entry" onclick="showRecordDetail(${i})"><div class="check">✓</div><div class="time">${r.at}</div><div><b>${r.icon} ${r.label}</b>${statusBadge('feito')}${recordNoteHtml(r)}</div><div>›</div></div>`).join('')+'</div>'}
+function renderFamily(){let l=late().length,p=pending().length;document.getElementById('familyStatus').innerHTML=p===0?`<div class="status-box green"><div class="dot"></div><div><b>Dona Nair está bem</b><span>Todas as atividades de hoje foram concluídas.</span></div></div>`:l>0?`<div class="status-box red"><div class="dot"></div><div><b>Atenção necessária</b><span>${l} atividade(s) precisam de acompanhamento.</span></div></div>`:`<div class="status-box blue"><div class="dot"></div><div><b>Rotina em andamento</b><span>Nenhuma atividade está atrasada. Ainda há ${p} programada(s).</span></div></div>`;document.getElementById('familyList').innerHTML=routine.map(r=>`<div class="row"><span>${r.icon} ${r.time} ${r.label}</span>${statusBadge(taskStatus(r))}</div>`).join('')+weeklySummary()}
+function weeklySummary(){let keys=allRecordKeys().slice(-7);if(!keys.length)return '';return `<h3 style="margin-top:28px">Últimos dias</h3>`+keys.map(k=>{let date=k.replace('nair_records_','').split('-').reverse().join('/');let count=(JSON.parse(localStorage.getItem(k)||'[]')).length;return `<div class="row"><span>📅 ${date}</span><span>${count} registros</span></div>`}).join('')}
+function renderSettings(){document.getElementById('routineInputs').innerHTML=routine.map(r=>`<div class="setting-row"><input type="time" id="time_${r.id}" value="${r.time}"><span>${r.icon} ${r.label}</span></div>`).join('');document.getElementById('phone').value=localStorage.getItem('nair_phone')||''}
+function completeTask(id){let task=routine.find(r=>r.id===id);if(!task||done(id))return;let note='Concluído';if(task.type==='gly'){let v=prompt('Digite a glicemia em mg/dL:');if(!v)return;v=String(v).trim().replace(',','.');if(!v)return;note=v+' mg/dL'}let d=new Date();records.push({...task,label:task.type==='gly'?'Medir glicemia':task.label,at:d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}),note});localStorage.setItem(key(),JSON.stringify(records));vibrate();toast('Registro salvo com sucesso');render()}
+function needHelp(){let phone=localStorage.getItem('nair_phone')||'';let msg=encodeURIComponent('Preciso de ajuda. Sou a Dona Nair.');if(phone)location.href=`https://wa.me/${phone}?text=${msg}`;else alert('Cadastre o WhatsApp da família em Ajustes.')}
+function saveRoutine(){routine=routine.map(r=>({...r,time:document.getElementById('time_'+r.id).value||r.time}));localStorage.setItem('nair_routine',JSON.stringify(routine));toast('Rotina salva');render()}
+function resetRoutine(){routine=defaultRoutine;localStorage.removeItem('nair_routine');localStorage.removeItem('nair_routine_v32_done');toast('Padrão restaurado');render()}
+function savePhone(){localStorage.setItem('nair_phone',document.getElementById('phone').value.replace(/\D/g,''));toast('Contato salvo')}
+function clearToday(){if(confirm('Limpar os registros de hoje?')){records=[];localStorage.setItem(key(),'[]');render()}}
+function downloadCsv(){let csv='hora,tipo,atividade,observacao\n'+records.map(r=>`${r.at},${r.type},${r.label},${r.note||''}`).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='relatorio_dona_nair.csv';a.click()}
+function sendWhats(){let phone=localStorage.getItem('nair_phone')||'';let msg=encodeURIComponent(`Resumo Dona Nair: ${records.length} atividade(s) registradas hoje. Pendentes: ${pending().length}. Atrasadas: ${late().length}.`);if(phone)location.href=`https://wa.me/${phone}?text=${msg}`;else alert('Cadastre o WhatsApp da família em Ajustes.')}
+function toast(t){let el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1800)}
+function vibrate(){try{navigator.vibrate&&navigator.vibrate(35)}catch(e){}}
+function confetti(){if(window._confettiDone)return;window._confettiDone=true;let c=document.getElementById('confetti');for(let i=0;i<28;i++){let e=document.createElement('i');e.textContent=['🎉','💜','❤️','✨'][i%4];e.style.left=Math.random()*100+'%';e.style.animationDelay=Math.random()*0.7+'s';c.appendChild(e)}setTimeout(()=>c.innerHTML='',2200)}
+function allRecordKeys(){return Object.keys(localStorage).filter(k=>k.startsWith('nair_records_')).sort()}
+function exportBackup(){const data={version:VERSION,exportedAt:new Date().toISOString(),app:'Cuidado Dona Nair',routine,phone:localStorage.getItem('nair_phone')||'',records:{}};allRecordKeys().forEach(k=>data.records[k]=JSON.parse(localStorage.getItem(k)||'[]'));let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.download='backup_cuidado_dona_nair.json';a.click()}
+function importBackup(ev){const file=ev.target.files&&ev.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result);if(data.routine){routine=data.routine;localStorage.setItem('nair_routine',JSON.stringify(routine))}if(data.phone)localStorage.setItem('nair_phone',data.phone);if(data.records)Object.entries(data.records).forEach(([k,v])=>localStorage.setItem(k,JSON.stringify(v)));records=JSON.parse(localStorage.getItem(key())||'[]');toast('Backup importado');render()}catch(e){alert('Não consegui importar este arquivo.')}};reader.readAsText(file)}
+async function enableNotifications(){if(!('Notification'in window)){alert('Este navegador não permite notificações.');return}const p=await Notification.requestPermission();localStorage.setItem('nair_notifications',p==='granted'?'on':'off');toast(p==='granted'?'Notificações ativadas':'Notificações não autorizadas');updateNotifButton();scheduleNotifications()}
+function updateNotifButton(){let b=document.getElementById('notifBtn');if(!b)return;let on=localStorage.getItem('nair_notifications')==='on'&&Notification.permission==='granted';b.textContent=on?'Notificações ativadas':'Ativar notificações'}
+async function notify(title,body,tag='nair'){try{if(localStorage.getItem('nair_notifications')!=='on'||!('Notification'in window)||Notification.permission!=='granted')return;let opts={body,tag,renotify:true,icon:'icon-192.png',badge:'icon-192.png'};if(navigator.serviceWorker&&navigator.serviceWorker.ready){let reg=await navigator.serviceWorker.ready;reg.showNotification(title,opts)}else{new Notification(title,opts)}}catch(e){}}
+function testNotification(){notify('Cuidado Dona Nair','Teste de notificação funcionando.','teste');toast('Notificação de teste enviada')}
+function scheduleNotifications(){scheduledTimers.forEach(clearTimeout);scheduledTimers=[];if(localStorage.getItem('nair_notifications')!=='on')return;routine.forEach(task=>{if(done(task.id))return;let due=minutes(task.time), now=nowMinutes();let delay=(due-now)*60000;if(delay<0)delay=1000;let t=setTimeout(()=>checkAndNotifyTask(task),Math.max(delay,1000));scheduledTimers.push(t)})}
+function checkAndNotifyTask(task){if(done(task.id))return;let stamp=new Date().toISOString().slice(0,10)+'_'+task.id;let last=localStorage.getItem('nair_notified_'+stamp);let now=Date.now();if(!last||now-Number(last)>15*60000){localStorage.setItem('nair_notified_'+stamp,String(now));notify('Cuidado Dona Nair',`${task.label} está pendente. Horário previsto: ${task.time}.`,task.id);vibrate()}let repeat=setTimeout(()=>checkAndNotifyTask(task),15*60000);scheduledTimers.push(repeat)}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');['home','family','settings'].forEach(id=>document.getElementById(id).classList.toggle('hidden',id!==b.dataset.tab));render()});
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e});document.getElementById('installBtn').onclick=async()=>{if(deferredPrompt){deferredPrompt.prompt();deferredPrompt=null}else alert('No Android, toque no menu do navegador e escolha “Adicionar à tela inicial”.')};
+setTimeout(()=>document.getElementById('splash').classList.add('hide'),900);render();setInterval(render,60000);if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js?v=35').catch(()=>{});
+</script>
+</body></html>
