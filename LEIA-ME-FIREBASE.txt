@@ -1,0 +1,51 @@
+CUIDADO DONA NAIR 6.5 — NOTIFICAÇÕES COM O APP FECHADO
+
+O código já está preparado, mas o envio não começa até o Firebase ser criado e conectado.
+Não publique com enabled:true enquanto os campos estiverem vazios.
+
+1) CRIAR O PROJETO
+- Acesse Firebase Console e crie um projeto.
+- Adicione um aplicativo Web.
+- Copie o objeto firebaseConfig.
+
+2) ATIVAR SERVIÇOS
+- Authentication > Sign-in method > ative Anonymous.
+- Firestore Database > criar banco em modo Produção, região southamerica-east1 quando disponível.
+- Cloud Messaging > Web Push certificates > gerar par de chaves. Copie a chave pública VAPID.
+- O uso de Cloud Functions agendadas exige o plano Blaze e uma forma de pagamento. O consumo deste app tende a ser pequeno, mas não é possível prometer custo zero.
+
+3) PREENCHER O ARQUIVO
+Abra firebase-config.js e:
+- cole os dados em firebaseConfig;
+- cole a chave pública em vapidKey;
+- mude enabled: false para enabled: true.
+
+4) INSTALAR FIREBASE CLI NO COMPUTADOR
+- Instale Node.js 20.
+- No terminal: npm install -g firebase-tools
+- firebase login
+- dentro desta pasta: firebase use --add
+- escolha o projeto criado.
+
+5) PUBLICAR REGRAS E FUNÇÃO
+- dentro da pasta functions: npm install
+- volte à pasta principal
+- firebase deploy --only firestore:rules,functions
+
+6) PUBLICAR O SITE
+Você pode manter o GitHub Pages. Envie os arquivos do app para o GitHub, inclusive push-client.js e o sw.js novo.
+Não envie a pasta functions para o diretório público do GitHub Pages se preferir mantê-la separada; ela só serve para o deploy da função.
+
+7) NO CELULAR DA DONA NAIR
+- Abra o site atualizado pelo Chrome.
+- Instale o app.
+- Entre em Ajustes > Notificações > Ativar notificações.
+- O app fará login anônimo e enviará a rotina para o Firestore.
+- Faça um cuidado de teste para 3 a 5 minutos no futuro.
+- Feche completamente o app e aguarde.
+
+IMPORTANTE
+- Celular totalmente desligado não recebe nada. Ao ligar, o PWA não garante aviso retroativo.
+- Tela apagada/app fechado: o push deve chegar, sujeito às permissões do Android, Chrome e economia de bateria.
+- Voz automática continua não garantida com o PWA fechado; o push entrega notificação, som e vibração do sistema.
+- Continue usando um alarme convencional até validar vários testes reais.
